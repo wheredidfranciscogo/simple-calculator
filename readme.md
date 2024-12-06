@@ -1,7 +1,7 @@
 # Simple Calculator (CLI)
 
 ## Description
-A command-line tool that performs basic arithmetic operations like addition, subtraction, multiplication, and division. This project is designed to help learn Go programming through building a simple yet practical application.
+A command-line tool that performs basic arithmetic operations like addition, subtraction, multiplication, and division. This project is designed to refresh my experrience with Go programming through building a simple yet practical application.
 
 ---
 
