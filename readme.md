@@ -25,7 +25,7 @@ A command-line tool that performs basic arithmetic operations like addition, sub
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/simple-calculator.git
+   git clone https://git-repo/your-username/simple-calculator.git
    cd simple-calculator
    ```
 2. Initialize the Go module:
