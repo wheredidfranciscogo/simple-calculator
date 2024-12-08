@@ -25,6 +25,15 @@ func main() {
 		return
 	}
 
+	operator := os.Args[2]
+
+	if operator == "+" {
+		result := num1 + num2
+		fmt.Println("Result:", result)
+	} else {
+		fmt.Println("Unsupported operator:", operator)
+	}
+
 	fmt.Println("Number 1:", num1)
 	fmt.Println("Number 2:", num2)
 	fmt.Println("Operator:", os.Args[2])
