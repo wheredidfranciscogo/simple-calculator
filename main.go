@@ -7,23 +7,24 @@ import (
 )
 
 func main() {
+	// check for valid arguments
 	if len(os.Args) < 4 {
 		fmt.Println("Usage: go run main.go <number1> <operator> <number2>")
 		return
 	}
-	// Convert the first number
-	num1, err := strconv.ParseFloat(os.Args[1], 64)
-	if err != nil {
-		fmt.Println("Error: Invalid number for num1")
-		return
+
+	// Convert the input args
+	numbers := []float64{}
+	for i, arg := range []string{os.Args[1], os.Args[3]} {
+		num, err := strconv.ParseFloat(arg, 64)
+		if err != nil {
+			fmt.Printf("Error: Invalid number for argument %d/n", i+1)
+			return
+		}
+		numbers = append(numbers, num)
 	}
 
-	// Convert the second number
-	num2, err := strconv.ParseFloat(os.Args[3], 64)
-	if err != nil {
-		fmt.Println("Error: Invalid number for num2")
-		return
-	}
+	num1, num2 := numbers[0], numbers[1]
 
 	operator := os.Args[2]
 
