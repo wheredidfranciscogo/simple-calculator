@@ -25,18 +25,32 @@ func main() {
 	}
 
 	num1, num2 := numbers[0], numbers[1]
-
 	operator := os.Args[2]
 
-	if operator == "+" {
-		result := num1 + num2
-		fmt.Println("Result:", result)
-	} else {
-		fmt.Println("Unsupported operator:", operator)
-	}
+	result := calculate(num1, num2, operator)
 
-	fmt.Println("Number 1:", num1)
-	fmt.Println("Number 2:", num2)
-	fmt.Println("Operator:", os.Args[2])
-	// fmt.Println("Arguments provided:", os.Args[1:]) // what is the meaning of this 1:
+	// Print the result of the calculation
+	fmt.Printf("The result of %.2f %s %.2f is %.2f\n", num1, operator, num2, result)
+}
+
+func calculate(a float64, b float64, operator string) float64 {
+	switch operator {
+	case "+":
+		return a + b
+	case "-":
+		return a - b
+	case "*":
+		return a * b
+	case "/":
+		if b != 0 {
+			return a / b
+		} else {
+			fmt.Println("Error: Division by zero")
+			os.Exit(1) // Stop the program if there's a division by zero
+		}
+	default:
+		fmt.Println("Invalid operator")
+		os.Exit(1)
+	}
+	return 0
 }
