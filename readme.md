@@ -106,12 +106,3 @@ go run main.go <number1> <operator> <number2>
 - [ ] Handle interactive input (prompting the user instead of command-line arguments).
 - [ ] Add unit tests for all features.
 
----
-
-## License
-This project is licensed under the MIT License.
-
----
-
-## Contributing
-Feel free to fork the repository and submit pull requests for improvements or bug fixes!
