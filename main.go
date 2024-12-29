@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 )
@@ -29,8 +30,7 @@ func main() {
 
 	result := calculate(num1, num2, operator)
 
-	// Print the result of the calculation
-	fmt.Printf("The result of %.2f %s %.2f is %.2f\n", num1, operator, num2, result)
+	fmt.Printf("Result of %.2f %s %.2f = %.2f\n", num1, operator, num2, result)
 }
 
 func calculate(a float64, b float64, operator string) float64 {
@@ -48,6 +48,10 @@ func calculate(a float64, b float64, operator string) float64 {
 			fmt.Println("Error: Division by zero")
 			os.Exit(1) // Stop the program if there's a division by zero
 		}
+	case "%":
+		return math.Mod(a, b)
+	case "^":
+		return math.Pow(a, b)
 	default:
 		fmt.Println("Invalid operator")
 		os.Exit(1)
