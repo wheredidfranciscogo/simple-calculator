@@ -3,30 +3,35 @@ package main
 import (
 	"fmt"
 	"math"
-	"os"
-	"strconv"
 )
 
 func main() {
-	// check for valid arguments
-	if len(os.Args) < 4 {
-		fmt.Println("Usage: go run main.go <number1> <operator> <number2>")
+	var num1, num2 float64
+	var operator string
+
+	// Prompt for the first number
+	fmt.Print("Enter the first number: ")
+	_, err := fmt.Scanln(&num1)
+	if err != nil {
+		fmt.Println("Error: Invalid input")
 		return
 	}
 
-	// Convert the input args
-	numbers := []float64{}
-	for i, arg := range []string{os.Args[1], os.Args[3]} {
-		num, err := strconv.ParseFloat(arg, 64)
-		if err != nil {
-			fmt.Printf("Error: Invalid number for argument %d/n", i+1)
-			return
-		}
-		numbers = append(numbers, num)
+	// Prompt for the operator
+	fmt.Print("Enter the operator (+, -, *, /, %, ^): ")
+	_, err = fmt.Scanln(&operator)
+	if err != nil {
+		fmt.Println("Error: Invalid input")
+		return
 	}
 
-	num1, num2 := numbers[0], numbers[1]
-	operator := os.Args[2]
+	// Prompt for the second number
+	fmt.Print("Enter the second number: ")
+	_, err = fmt.Scanln(&num2)
+	if err != nil {
+		fmt.Println("Error: Invalid input")
+		return
+	}
 
 	result := calculate(num1, num2, operator)
 
@@ -42,19 +47,15 @@ func calculate(a float64, b float64, operator string) float64 {
 	case "*":
 		return a * b
 	case "/":
-		if b != 0 {
-			return a / b
-		} else {
-			fmt.Println("Error: Division by zero")
-			os.Exit(1) // Stop the program if there's a division by zero
+		if b == 0 {
+			panic("division by zero")
 		}
+		return a / b
 	case "%":
 		return math.Mod(a, b)
 	case "^":
 		return math.Pow(a, b)
 	default:
-		fmt.Println("Invalid operator")
-		os.Exit(1)
+		panic("invalid operator")
 	}
-	return 0
 }
