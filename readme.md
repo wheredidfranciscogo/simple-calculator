@@ -102,7 +102,7 @@ go run main.go <number1> <operator> <number2>
 ---
 
 ## Roadmap
-- [ ] Add support for advanced operations (e.g., modulus, power).
-- [ ] Handle interactive input (prompting the user instead of command-line arguments).
-- [ ] Add unit tests for all features.
+- [x] Add support for advanced operations (e.g., modulus, power).
+- [x] Handle interactive input (prompting the user instead of command-line arguments).
+- [x] Add unit tests for all features.
 
